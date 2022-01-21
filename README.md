@@ -15,6 +15,8 @@ Couleurs de l'application :
 
 Moqups de l'application : 
 
+<img width="251" alt="Capture d’écran 2022-01-21 à 14 09 32" src="https://user-images.githubusercontent.com/58333856/150532473-c914244d-0b4d-443d-9fd3-4f560b6f4a64.png">
+
 <img width="919" alt="moqups1" src="https://user-images.githubusercontent.com/58333856/150530834-881a1fe2-4fad-4af6-9048-7cd8e75605df.png">
 
 <img width="937" alt="moqups2" src="https://user-images.githubusercontent.com/58333856/150530814-f377728d-4377-452c-9122-39315b109abf.png">

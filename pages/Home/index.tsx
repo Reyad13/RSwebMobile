@@ -27,7 +27,7 @@ const Home = ({ navigation }: any) => {
                 </View>
                 <View style={styles.buttonsContainer}>
                     <TouchableOpacity
-                        onPress={() => navigation.navigate("Connection")}
+                        onPress={() => navigation.navigate("Authentication")}
                         style={styles.btnLeft}
                     >
                         <Text style={styles.btnText}>Connexion</Text>

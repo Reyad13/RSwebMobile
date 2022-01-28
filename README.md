@@ -22,6 +22,14 @@ Moqups de l'application :
 
 <img width="499" alt="Capture d’écran 2022-01-21 à 15 20 01" src="https://user-images.githubusercontent.com/58333856/150542731-5225e26b-bd9e-4fbb-8c3e-4914f932baa0.png">
 
-<img width="599" alt="Capture d’écran 2022-01-21 à 15 21 24" src="https://user-images.githubusercontent.com/58333856/150542843-65a70400-c913-4aa8-98ff-67c1fe2abe54.png">
+<img width="615" alt="moqups1" src="https://user-images.githubusercontent.com/58333856/151511086-65599fa3-b9ce-422b-b644-e6a4af7e42e8.jpeg">
 
-<img width="937" alt="moqups2" src="https://user-images.githubusercontent.com/58333856/150530814-f377728d-4377-452c-9122-39315b109abf.png">
+<img width="615" alt="moqups1" src="https://user-images.githubusercontent.com/58333856/151511093-0b16cefe-b0b1-44e4-964e-217b80c2f4ca.jpeg">
+
+<img width="615" alt="moqups1" src="https://user-images.githubusercontent.com/58333856/151511141-28933bf2-adcb-46e2-908e-f3110e7d478b.png">
+
+<img width="710" alt="moqups2" src="https://user-images.githubusercontent.com/58333856/151511179-c8f80eeb-baa1-4924-8c4f-fe812a68871b.png">
+
+
+
+

@@ -3,7 +3,7 @@ import { useState } from "react"
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from "react-native"
 import { useTheme } from "@react-navigation/native"
 import { DismissKeyboard } from "../../helpers/utils"
-
+import useFirebaseLogin from "../../hooks/useFirebaseLogin"
 
 const Registration = ({ navigation }: any) => {
 
@@ -12,6 +12,7 @@ const Registration = ({ navigation }: any) => {
     const [email, setEmail] = useState<string>("")
     const [password, setPassword] = useState<string>("")
     const { colors } = useTheme()
+    const { registerUser } = useFirebaseLogin()
 
     return (
         <DismissKeyboard>
@@ -20,34 +21,34 @@ const Registration = ({ navigation }: any) => {
                     <Text style={[styles.brand, { color: colors.text }]}>Moure</Text>
                     <View style={styles.inputContainer}>
                         <TextInput
-                            style={[styles.input, { borderColor: colors.border, backgroundColor: colors.card }]}
+                            style={[styles.input, { borderColor: colors.border, backgroundColor: colors.card, color: colors.text }]}
                             onChangeText={setFirstName}
                             value={firstName}
                             placeholder="Prénom"
                         />
                         <TextInput
-                            style={[styles.input, { borderColor: colors.border, backgroundColor: colors.card }]}
+                            style={[styles.input, { borderColor: colors.border, backgroundColor: colors.card, color: colors.text }]}
                             onChangeText={setLastName}
                             value={lastName}
                             placeholder="Nom de famille"
                         />
                         <TextInput
-                            style={[styles.input, { borderColor: colors.border, backgroundColor: colors.card }]}
+                            style={[styles.input, { borderColor: colors.border, backgroundColor: colors.card, color: colors.text }]}
                             onChangeText={setEmail}
                             value={email}
                             placeholder="Adresse email"
                             autoCapitalize="none"
                         />
                         <TextInput
-                            style={[styles.input, { borderColor: colors.border, backgroundColor: colors.card }]}
+                            style={[styles.input, { borderColor: colors.border, backgroundColor: colors.card, color: colors.text }]}
                             onChangeText={setPassword}
                             value={password}
                             placeholder="Mot de passe"
                             secureTextEntry={true}
                         />
                         <TouchableOpacity
-                            onPress={() => navigation.navigate("Connection")}
                             style={styles.buttonConnection}
+                            onPress={() => registerUser(firstName, lastName, email, password)}
                         >
                             <Text style={styles.btnText}>S'inscrire</Text>
                         </TouchableOpacity>

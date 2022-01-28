@@ -1,13 +1,13 @@
 import { StatusBar } from "expo-status-bar"
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native"
 import AppLoading from 'expo-app-loading'
-import { useFonts, Pacifico_400Regular } from '@expo-google-fonts/pacifico';
+import { useFonts, Pacifico_400Regular } from '@expo-google-fonts/pacifico'
 
 const Home = ({ navigation }: any) => {
 
     let [fontsLoaded] = useFonts({
         Pacifico_400Regular,
-    });
+    })
 
     if (!fontsLoaded) {
         return <AppLoading />
@@ -27,13 +27,13 @@ const Home = ({ navigation }: any) => {
                 </View>
                 <View style={styles.buttonsContainer}>
                     <TouchableOpacity
-                        onPress={() => navigation.navigate("Authentication")}
+                        onPress={() => navigation.navigate("Connection")}
                         style={styles.btnLeft}
                     >
                         <Text style={styles.btnText}>Connexion</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
-                        onPress={() => navigation.navigate("Inscription")}
+                        onPress={() => navigation.navigate("Registration")}
                         style={styles.btnRight}
                     >
                         <Text style={styles.btnText}>Inscription</Text>

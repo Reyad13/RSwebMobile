@@ -13,6 +13,8 @@
     "@expo-google-fonts/open-sans": "^0.2.2",
     "@expo-google-fonts/pacifico": "^0.2.2",
     "@expo/ngrok": "^4.1.0",
+    "@react-native-firebase/app": "^14.3.0",
+    "@react-native-firebase/auth": "^14.3.0",
     "@react-navigation/native": "^6.0.6",
     "@react-navigation/native-stack": "^6.2.5",
     "expo": "~44.0.0",
@@ -24,6 +26,7 @@
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-native": "0.64.3",
+    "react-native-appearance": "~0.3.3",
     "react-native-safe-area-context": "3.3.2",
     "react-native-screens": "~3.10.1",
     "react-native-web": "0.17.1"

@@ -1,15 +1,22 @@
 import { StatusBar } from "expo-status-bar"
-import { StyleSheet, Text, View } from "react-native"
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native"
 import { useTheme } from "@react-navigation/native"
+import useFirebaseLogin from "../../hooks/useFirebaseLogin"
 
 const Profile = ({ navigation }: any) => {
 
     const { colors } = useTheme()
+    const { logout } = useFirebaseLogin()
 
     return (
         <View style={styles.container}>
             <View style={styles.body}>
-                <Text style={[styles.brand, { color: colors.text }]}>ko</Text>
+                <TouchableOpacity
+                    onPress={() => logout()}
+                    style={styles.buttonConnection}
+                >
+                    <Text style={styles.btnText}>Se déconnecter</Text>
+                </TouchableOpacity>
             </View>
             <StatusBar style={"auto"} />
         </View>
@@ -26,33 +33,12 @@ const styles = StyleSheet.create({
         flex: 1,
         width: '100%',
         alignItems: "center",
-        justifyContent: "center",
-        paddingBottom: 100,
-    },
-    brand: {
-        fontSize: 35,
-        fontWeight: "bold",
-        fontFamily: 'Pacifico_400Regular',
-        marginBottom: 10,
-    },
-    inputContainer: {
-        flex: 0,
-        alignItems: "center",
-        justifyContent: "center",
-        width: '100%',
-        paddingHorizontal: 20,
-    },
-    input: {
-        height: 40,
-        margin: 12,
-        borderWidth: 1,
-        borderRadius: 5,
-        width: "100%",
-        padding: 10,
+        justifyContent: "flex-end",
+        padding: 20,
     },
     buttonConnection: {
         padding: 15,
-        backgroundColor: "#D9205C",
+        backgroundColor: "#E01422",
         alignItems: 'center',
         width: '100%',
         borderRadius: 5,

@@ -6,7 +6,7 @@ import { initializeApp } from "firebase/app"
 import useFirebaseLogin from './hooks/useFirebaseLogin'
 import { useEffect, useState } from 'react'
 import { firebaseConfig } from './config/firebase'
-import { LogoTitle } from './components'
+import { LogoTitle, NavigationTitle } from './components'
 import { Icon } from "react-native-elements"
 import { StyleSheet, TouchableOpacity } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
@@ -57,7 +57,7 @@ export default function App() {
             </TouchableOpacity>
           )
         })} />
-        <Stack.Screen name="Profile" component={Profile} options={{ headerShown: true, headerBackTitleVisible: false }} />
+        <Stack.Screen name="Profile" component={Profile} options={{ headerTitle: (props) => <NavigationTitle {...props} />, headerBackVisible: false, headerStyle: { backgroundColor: scheme === "dark" ? MyDarkTheme.colors.background : MyDefaultTheme.colors.background } }} />
       </Stack.Navigator>
     )
   }

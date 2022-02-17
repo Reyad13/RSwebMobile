@@ -6,6 +6,7 @@ import {
     createUserWithEmailAndPassword,
     signOut,
 } from "firebase/auth"
+import { getFirestore, setDoc, doc } from "firebase/firestore"
 import { useState } from "react"
 
 const useFirebaseLogin = () => {
@@ -45,11 +46,22 @@ const useFirebaseLogin = () => {
         })*/
     }
 
-    const registerUser = (fistName: string, lastName: string, email: string, password: string) => {
+    const registerUser = async (fistName: string, lastName: string, email: string, password: string) => {
         const auth = getAuth()
+        const db = getFirestore()
+
         createUserWithEmailAndPassword(auth, email, password)
-            .then(() => {
-                console.log('User account created & signed in!');
+            .then(async (response) => {
+                try {
+                    await setDoc(doc(db, "users", response.user.uid), {
+                        email: email,
+                        lastName: lastName,
+                        firstName: fistName,
+                    })
+                } catch (e) {
+                    console.log("Erreur sur l'ajout du document", e)
+                }
+                console.log('User account created & signed in!')
             })
             .catch(error => {
                 if (error.code === 'auth/email-already-in-use') {

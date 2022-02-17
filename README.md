@@ -17,7 +17,7 @@ Couleurs de l'application :
 
 
 
-Moqups de l'application : 
+Design de l'application : 
 
 <div>
 <img width="400" alt="moqups1" src="https://user-images.githubusercontent.com/58333856/154498821-44fbbb4e-c1f2-4e32-a5c9-5f5b3ee6fcde.jpeg">

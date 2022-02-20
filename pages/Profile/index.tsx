@@ -3,18 +3,24 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native"
 import { useTheme } from "@react-navigation/native"
 import useFirebaseLogin from "../../hooks/useFirebaseLogin"
 import { Avatar, colors } from 'react-native-elements'
+import React, { useState, useEffect } from 'react';
+import { Camera } from 'expo-camera';
+import * as ImagePicker from 'expo-image-picker';
+import ImagePickerExample from "../../hooks/useCam";
+
 
 const Profile = ({ navigation }: any) => {
 
     const { colors } = useTheme()
     const { logout } = useFirebaseLogin()
+    const { pickImage } = (ImagePickerExample)
 
     return (
         <View style={styles.container}>
             <View style={styles.body}>
                 <View style={styles.headerProfile}>
                     <View style={styles.abonneContainer}>
-                        <Text style={[styles.number, { color: colors.text }]}>5893</Text>
+                        <Text style={[styles.number, { color: colors.text }]}>0</Text>
                         <Text style={[styles.title, { color: colors.text }]}>Abonnés</Text>
                     </View>
                     <View style={styles.avatarContainer}>
@@ -25,9 +31,17 @@ const Profile = ({ navigation }: any) => {
                         />
                     </View>
                     <View style={styles.abonnementContainer}>
-                        <Text style={[styles.number, { color: colors.text }]}>203</Text>
+                        <Text style={[styles.number, { color: colors.text }]}>0</Text>
                         <Text style={[styles.title, { color: colors.text }]}>Abonnements</Text>
                     </View>
+                </View>
+                <View style={styles.content}>
+                    <TouchableOpacity
+                        onPress={() => ImagePickerExample()}
+                        style={styles.buttonAvatar}
+                    >
+                        <Text style={styles.btnAvatar}>Modifier ma photo</Text>
+                    </TouchableOpacity>
                 </View>
                 <View style={styles.content}>
                     <TouchableOpacity
@@ -101,6 +115,28 @@ const styles = StyleSheet.create({
         color: "#ffffff",
         fontWeight: "bold",
     },
+    btnAvatar: {
+        fontSize: 9,
+        color: "#ffffff",
+        fontWeight: "bold",
+    },
+    buttonAvatar: {
+        padding: 10,
+        borderRadius: 5,
+        alignItems: 'center',
+        width: '30%',
+        marginLeft: '35%',
+        top: '-90%',
+        backgroundColor: "orange",
+
+
+    }
 })
 
 export default Profile
+
+
+function setImageSource(uri: any) {
+    throw new Error("Function not implemented.")
+}
+

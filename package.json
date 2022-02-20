@@ -25,14 +25,20 @@
     "expo-splash-screen": "~0.14.1",
     "expo-status-bar": "~1.2.0",
     "firebase": "^9.6.6",
+    "pod-install": "^0.1.32",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-native": "0.64.3",
     "react-native-appearance": "~0.3.3",
     "react-native-elements": "^3.4.2",
+    "react-native-image-crop-picker": "^0.37.3",
+    "react-native-image-picker": "^4.7.3",
+    "react-native-interactive-avatar": "^2.0.0",
     "react-native-safe-area-context": "3.3.2",
     "react-native-screens": "~3.10.1",
-    "react-native-web": "0.17.1"
+    "react-native-web": "0.17.1",
+    "expo-camera": "~12.0.3",
+    "expo-image-picker": "~12.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

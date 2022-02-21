@@ -2,18 +2,18 @@ import { StatusBar } from "expo-status-bar"
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native"
 import { useTheme } from "@react-navigation/native"
 import useFirebaseLogin from "../../hooks/useFirebaseLogin"
-import { Avatar, colors } from 'react-native-elements'
-import React, { useState, useEffect } from 'react';
-import { Camera } from 'expo-camera';
-import * as ImagePicker from 'expo-image-picker';
-import ImagePickerExample from "../../hooks/useCam";
-
+import { Avatar } from 'react-native-elements'
+import { useContext } from "react"
+import { UserContext } from "../../providers/UserProvider"
+import { useColorScheme } from "react-native-appearance"
+import { MyDarkTheme, MyDefaultTheme } from "../../themes"
 
 const Profile = ({ navigation }: any) => {
 
     const { colors } = useTheme()
     const { logout } = useFirebaseLogin()
-    const { pickImage } = (ImagePickerExample)
+    const { userInfo } = useContext(UserContext)
+    const scheme = useColorScheme()
 
     return (
         <View style={styles.container}>
@@ -35,12 +35,14 @@ const Profile = ({ navigation }: any) => {
                         <Text style={[styles.title, { color: colors.text }]}>Abonnements</Text>
                     </View>
                 </View>
-                <View style={styles.content}>
+                <View style={styles.subHeader}>
+                    <Text style={[styles.nameText, { color: colors.text }]}>{userInfo?.firstName + " " + userInfo?.lastName}</Text>
+                    <Text style={[styles.bioText, { color: colors.text }]}>Voici une petite biographie et vous en pensez quoi ?</Text>
                     <TouchableOpacity
-                        onPress={() => ImagePickerExample()}
-                        style={styles.buttonAvatar}
+                        onPress={() => logout()}
+                        style={[styles.editProfile, { borderColor: scheme === "dark" ? MyDarkTheme.colors.card : MyDefaultTheme.colors.border }]}
                     >
-                        <Text style={styles.btnAvatar}>Modifier ma photo</Text>
+                        <Text style={[styles.editProfileText, { color: colors.text }]}>Modifier profil</Text>
                     </TouchableOpacity>
                 </View>
                 <View style={styles.content}>
@@ -76,6 +78,20 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
     },
+    subHeader: {
+        flex: 0,
+        width: '100%',
+        justifyContent: "flex-start",
+    },
+    editProfile: {
+        padding: 10,
+        backgroundColor: "transparent",
+        alignItems: 'center',
+        width: '100%',
+        borderRadius: 5,
+        borderWidth: 0.5,
+        marginTop: 15
+    },
     avatarContainer: {
         flex: 1,
         alignItems: "center",
@@ -93,6 +109,15 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 14,
+    },
+    nameText: {
+        fontSize: 15,
+        fontWeight: 'bold',
+        marginTop: 20,
+    },
+    bioText: {
+        fontSize: 13,
+        marginTop: 4,
     },
     number: {
         fontSize: 20,
@@ -115,6 +140,10 @@ const styles = StyleSheet.create({
         color: "#ffffff",
         fontWeight: "bold",
     },
+    editProfileText: {
+        fontSize: 12,
+        fontWeight: "bold",
+    },
     btnAvatar: {
         fontSize: 9,
         color: "#ffffff",
@@ -134,9 +163,3 @@ const styles = StyleSheet.create({
 })
 
 export default Profile
-
-
-function setImageSource(uri: any) {
-    throw new Error("Function not implemented.")
-}
-

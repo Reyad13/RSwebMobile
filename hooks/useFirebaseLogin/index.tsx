@@ -10,7 +10,7 @@ import { getFirestore, setDoc, doc } from "firebase/firestore"
 import { useState } from "react"
 
 const useFirebaseLogin = () => {
-    const [user, setUser] = useState<User | null>(null);
+    const [user, setUser] = useState<User | null>(null)
 
     const checkAuth = (): Promise<void> =>
         new Promise((resolve) => {
@@ -79,6 +79,11 @@ const useFirebaseLogin = () => {
         signOut(auth)
     }
 
+    const currentUser = () => {
+        const auth = getAuth()
+        return auth.currentUser
+    }
+
     return {
         user,
         checkAuth,
@@ -86,6 +91,8 @@ const useFirebaseLogin = () => {
         logout,
         registerUser,
         loginUser,
+        getAuth,
+        currentUser,
     };
 };
 

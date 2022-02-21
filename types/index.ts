@@ -1,0 +1,1 @@
+export {default as UserInfoType} from './UserInfoType'

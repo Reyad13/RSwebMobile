@@ -11,6 +11,9 @@ import { Icon } from "react-native-elements"
 import { StyleSheet, TouchableOpacity } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { MyDarkTheme, MyDefaultTheme } from './themes'
+import { UserProvider } from './providers'
+
+initializeApp(firebaseConfig)
 
 const Stack = createNativeStackNavigator()
 const Tab = createBottomTabNavigator()
@@ -64,31 +67,33 @@ export default function App() {
 
   return (
     <AppearanceProvider>
-      <>
-        <NavigationContainer theme={scheme === "dark" ? MyDarkTheme : MyDefaultTheme}>
-          {user ?
-            <Tab.Navigator
-              screenOptions={{
-                tabBarStyle: {
-                  backgroundColor: scheme === "dark" ? MyDarkTheme.colors.background : MyDefaultTheme.colors.background,
-                  borderTopColor: scheme === "dark" ? MyDarkTheme.colors.card : MyDefaultTheme.colors.border
-                }
-              }}
-            >
-              <Tab.Screen name="Accueil" component={Accueil} options={{ headerShown: false, tabBarActiveTintColor: setActiveBottomNavigationColor(), tabBarLabel: hideBottomTabBarLabel, tabBarIcon: ({ color }) => (<Icon name="home" color={color} size={25} type='antdesign' />) }} />
-              <Tab.Screen name="New" component={New} options={{ tabBarActiveTintColor: setActiveBottomNavigationColor(), tabBarLabel: hideBottomTabBarLabel, tabBarIcon: ({ color }) => (<Icon name="md-add-circle-outline" color={color} size={25} type='ionicon' />) }} />
-              <Tab.Screen name="Search" component={Search} options={{ tabBarActiveTintColor: setActiveBottomNavigationColor(), tabBarLabel: hideBottomTabBarLabel, tabBarIcon: ({ color }) => (<Icon name="search1" color={color} size={25} type='antdesign' />) }} />
-              <Tab.Screen name="Message" component={Message} options={{ tabBarActiveTintColor: setActiveBottomNavigationColor(), tabBarLabel: hideBottomTabBarLabel, tabBarIcon: ({ color }) => (<Icon name="message1" color={color} size={25} type='antdesign' />) }} />
-            </Tab.Navigator>
-            :
-            <Stack.Navigator>
-              <Stack.Screen name="Start" component={Start} options={{ headerShown: false }} />
-              <Stack.Screen name="Connection" component={Connection} options={{ headerBackButtonMenuEnabled: false, title: "", headerTransparent: true, headerTintColor: scheme === "dark" ? "#ffffff" : colors.text }} />
-              <Stack.Screen name="Registration" component={Registration} options={{ headerBackButtonMenuEnabled: false, title: "", headerTransparent: true, headerTintColor: scheme === "dark" ? "#ffffff" : colors.text }} />
-            </Stack.Navigator>
-          }
-        </NavigationContainer>
-      </>
+      <UserProvider>
+        <>
+          <NavigationContainer theme={scheme === "dark" ? MyDarkTheme : MyDefaultTheme}>
+            {user ?
+              <Tab.Navigator
+                screenOptions={{
+                  tabBarStyle: {
+                    backgroundColor: scheme === "dark" ? MyDarkTheme.colors.background : MyDefaultTheme.colors.background,
+                    borderTopColor: scheme === "dark" ? MyDarkTheme.colors.card : MyDefaultTheme.colors.border
+                  }
+                }}
+              >
+                <Tab.Screen name="Accueil" component={Accueil} options={{ headerShown: false, tabBarActiveTintColor: setActiveBottomNavigationColor(), tabBarLabel: hideBottomTabBarLabel, tabBarIcon: ({ color }) => (<Icon name="home" color={color} size={25} type='antdesign' />) }} />
+                <Tab.Screen name="New" component={New} options={{ tabBarActiveTintColor: setActiveBottomNavigationColor(), tabBarLabel: hideBottomTabBarLabel, tabBarIcon: ({ color }) => (<Icon name="md-add-circle-outline" color={color} size={25} type='ionicon' />) }} />
+                <Tab.Screen name="Search" component={Search} options={{ tabBarActiveTintColor: setActiveBottomNavigationColor(), tabBarLabel: hideBottomTabBarLabel, tabBarIcon: ({ color }) => (<Icon name="search1" color={color} size={25} type='antdesign' />) }} />
+                <Tab.Screen name="Message" component={Message} options={{ tabBarActiveTintColor: setActiveBottomNavigationColor(), tabBarLabel: hideBottomTabBarLabel, tabBarIcon: ({ color }) => (<Icon name="message1" color={color} size={25} type='antdesign' />) }} />
+              </Tab.Navigator>
+              :
+              <Stack.Navigator>
+                <Stack.Screen name="Start" component={Start} options={{ headerShown: false }} />
+                <Stack.Screen name="Connection" component={Connection} options={{ headerBackButtonMenuEnabled: false, title: "", headerTransparent: true, headerTintColor: scheme === "dark" ? "#ffffff" : colors.text }} />
+                <Stack.Screen name="Registration" component={Registration} options={{ headerBackButtonMenuEnabled: false, title: "", headerTransparent: true, headerTintColor: scheme === "dark" ? "#ffffff" : colors.text }} />
+              </Stack.Navigator>
+            }
+          </NavigationContainer>
+        </>
+      </UserProvider>
     </AppearanceProvider>
   );
 }

@@ -46,7 +46,7 @@ const useFirebaseLogin = () => {
         })*/
     }
 
-    const registerUser = async (fistName: string, lastName: string, email: string, password: string) => {
+    const registerUser = async (firstName: string, lastName: string, email: string, password: string) => {
         const auth = getAuth()
         const db = getFirestore()
 
@@ -56,7 +56,7 @@ const useFirebaseLogin = () => {
                     await setDoc(doc(db, "users", response.user.uid), {
                         email: email,
                         lastName: lastName,
-                        firstName: fistName,
+                        firstName: firstName,
                         nbAbonnements: 0,
                         nbAbonnes: 0
                     })

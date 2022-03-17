@@ -57,6 +57,8 @@ const useFirebaseLogin = () => {
                         email: email,
                         lastName: lastName,
                         firstName: fistName,
+                        nbAbonnements: 0,
+                        nbAbonnes: 0
                     })
                 } catch (e) {
                     console.log("Erreur sur l'ajout du document", e)

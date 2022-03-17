@@ -20,7 +20,7 @@ const Profile = ({ navigation }: any) => {
             <View style={styles.body}>
                 <View style={styles.headerProfile}>
                     <View style={styles.abonneContainer}>
-                        <Text style={[styles.number, { color: colors.text }]}>0</Text>
+                        <Text style={[styles.number, { color: colors.text }]}>{userInfo?.nbAbonnes}</Text>
                         <Text style={[styles.title, { color: colors.text }]}>Abonnés</Text>
                     </View>
                     <View style={styles.avatarContainer}>
@@ -31,7 +31,7 @@ const Profile = ({ navigation }: any) => {
                         />
                     </View>
                     <View style={styles.abonnementContainer}>
-                        <Text style={[styles.number, { color: colors.text }]}>0</Text>
+                        <Text style={[styles.number, { color: colors.text }]}>{userInfo?.nbAbonnements}</Text>
                         <Text style={[styles.title, { color: colors.text }]}>Abonnements</Text>
                     </View>
                 </View>

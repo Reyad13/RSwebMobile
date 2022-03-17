@@ -47,10 +47,12 @@ const UserProvider = ({ children }: any) => {
                             email: docSnap.get("email"),
                             firstName: docSnap.get("firstName"),
                             lastName: docSnap.get("lastName"),
+                            nbAbonnements: docSnap.get("nbAbonnements"),
+                            nbAbonnes: docSnap.get("nbAbonnes"),
                         })
                     } else {
                         // doc.data() will be undefined in this case
-                        console.log("No such document!");
+                        console.log("Le document n'existe pas !");
                     }
                 })
                 .catch(error => {

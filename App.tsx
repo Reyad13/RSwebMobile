@@ -4,11 +4,11 @@ import { Connection, Start, Message, Profile, Registration, Search, Home, New } 
 import { AppearanceProvider, useColorScheme } from "react-native-appearance"
 import { initializeApp } from "firebase/app"
 import useFirebaseLogin from './hooks/useFirebaseLogin'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { firebaseConfig } from './config/firebase'
 import { LogoTitle, NavigationTitle } from './components'
 import { Icon } from "react-native-elements"
-import { StyleSheet, TouchableOpacity } from 'react-native'
+import { Image, StyleSheet, TouchableOpacity } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { MyDarkTheme, MyDefaultTheme } from './themes'
 import { UserProvider } from './providers'
@@ -19,7 +19,7 @@ const Stack = createNativeStackNavigator()
 const Tab = createBottomTabNavigator()
 
 export default function App() {
-  const { user, checkAuth } = useFirebaseLogin()
+  const { user, checkAuth, profile_picture } = useFirebaseLogin()
   const [loading, setLoading] = useState<boolean>(true)
   const scheme = useColorScheme()
   const { colors } = useTheme()
@@ -43,20 +43,13 @@ export default function App() {
     return "#000000"
   }
 
-  console.log(`IONIC::::`, user)
-
   function Accueil() {
     return (
       <Stack.Navigator>
         <Stack.Screen name="Home" component={Home} options={({ navigation }) => ({
           headerTitle: (props) => <LogoTitle {...props} />, headerStyle: { backgroundColor: scheme === "dark" ? MyDarkTheme.colors.background : MyDefaultTheme.colors.background }, headerRight: () => (
             <TouchableOpacity onPress={() => { navigation.navigate('Profile') }} style={styles.buttonSearch}>
-              <Icon
-                name='user-circle'
-                size={25}
-                color={scheme === "dark" ? "#ffffff" : "#000000"}
-                type='font-awesome'
-              />
+              <Image source={{ uri: profile_picture?.toString() }} style={{ width: 25, height: 25, borderRadius: 50 }} />
             </TouchableOpacity>
           )
         })} />

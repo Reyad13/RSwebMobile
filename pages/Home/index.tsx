@@ -45,23 +45,27 @@ const Home = ({ navigation }: any) => {
             })
     }, [isFocused])
 
-    console.log(posts)
-
     return (
         <View style={styles.container}>
             <View style={styles.body}>
                 <ScrollView style={styles.scrollview}>
                     {posts && posts.map((post, n) =>
-                        <>
-                            <PostHeader post={post} />
-                            <PostImage post={post} />
-                            <PostFooter post={post} />
-                        </>
+                        <Post post={post} key={n} />
                     )}
                 </ScrollView>
             </View>
             <StatusBar style={"auto"} />
         </View>
+    )
+}
+
+const Post = ({ post }: PostProps) => {
+    return (
+        <>
+            <PostHeader post={post} />
+            <PostImage post={post} />
+            <PostFooter post={post} />
+        </>
     )
 }
 

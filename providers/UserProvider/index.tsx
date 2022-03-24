@@ -45,10 +45,12 @@ const UserProvider = ({ children }: any) => {
                     if (docSnap.exists()) {
                         setUserInfo({
                             email: docSnap.get("email"),
+                            username: docSnap.get("username"),
                             firstName: docSnap.get("firstName"),
                             lastName: docSnap.get("lastName"),
                             nbAbonnements: docSnap.get("nbAbonnements"),
                             nbAbonnes: docSnap.get("nbAbonnes"),
+                            avatar: docSnap.get("avatar"),
                         })
                     } else {
                         // doc.data() will be undefined in this case

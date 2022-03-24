@@ -27,7 +27,7 @@ const Profile = ({ navigation }: any) => {
                         <Avatar
                             size={94}
                             rounded
-                            source={{ uri: "https://randomuser.me/api/portraits/men/36.jpg" }}
+                            source={{ uri: userInfo?.avatar !== "" ? userInfo?.avatar : "https://i.ibb.co/yp3WwP4/avatar.png" }}
                         />
                     </View>
                     <View style={styles.abonnementContainer}>

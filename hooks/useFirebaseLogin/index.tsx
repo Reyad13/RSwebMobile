@@ -55,6 +55,7 @@ const useFirebaseLogin = () => {
                 try {
                     await setDoc(doc(db, "users", response.user.uid), {
                         email: email,
+                        username: email.substring(0, email.lastIndexOf("@")),
                         lastName: lastName,
                         firstName: firstName,
                         nbAbonnements: 0,

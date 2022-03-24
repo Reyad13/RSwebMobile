@@ -107,7 +107,7 @@ const Caption = ({ post }: PostProps) => {
     return (
         <View style={{ marginTop: 10 }}>
             <Text style={{ color: colors.text }}>
-                <Text style={{ fontWeight: '600' }}>{userInfo?.username}</Text>
+                <Text style={{ fontWeight: '800' }}>{userInfo?.username}</Text>
                 <Text> {post.caption}</Text>
             </Text>
         </View>
@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
         width: '100%',
         alignItems: "center",
         justifyContent: "center",
-        paddingBottom: 100,
+        paddingBottom: 0,
     },
     scrollview: {
         width: '100%',

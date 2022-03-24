@@ -4,6 +4,7 @@ import { useIsFocused, useTheme } from "@react-navigation/native"
 import { useContext, useEffect, useState } from "react"
 import { UserContext } from "../../providers/UserProvider"
 import { getFirestore, collectionGroup, collection, getDocs } from "firebase/firestore"
+import { color } from "react-native-elements/dist/helpers"
 
 type PostType = {
     id: string | null,
@@ -54,6 +55,7 @@ const Home = ({ navigation }: any) => {
                         <>
                             <PostHeader post={post} />
                             <PostImage post={post} />
+                            <PostFooter post={post} />
                         </>
                     )}
                 </ScrollView>
@@ -97,11 +99,28 @@ const PostImage = ({ post }: PostProps) => {
     )
 }
 
-/*const PostFooter = () => {
-    return (
+const Caption = ({ post }: PostProps) => {
 
+    const { userInfo } = useContext(UserContext)
+    const { colors } = useTheme()
+
+    return (
+        <View style={{ marginTop: 10 }}>
+            <Text style={{ color: colors.text }}>
+                <Text style={{ fontWeight: '600' }}>{userInfo?.username}</Text>
+                <Text> {post.caption}</Text>
+            </Text>
+        </View>
     )
-}*/
+}
+
+const PostFooter = ({ post }: PostProps) => {
+    return (
+        <View style={{ flexDirection: "row" }}>
+            <Caption post={post} />
+        </View>
+    )
+}
 
 const styles = StyleSheet.create({
     container: {

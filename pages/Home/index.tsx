@@ -107,7 +107,7 @@ const Caption = ({ post }: PostProps) => {
     return (
         <View style={{ marginTop: 10 }}>
             <Text style={{ color: colors.text }}>
-                <Text style={{ fontWeight: '800' }}>{userInfo?.username}</Text>
+                <Text style={{ fontWeight: '800' }}>  {userInfo?.username}</Text>
                 <Text> {post.caption}</Text>
             </Text>
         </View>

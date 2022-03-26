@@ -41,5 +41,8 @@ Mode sombre :
 Fonctionnalités :
 
 Authentification fireBase ( FaceID Iphone)
+<br>
 Appareil photo - Changement de photo de profil
+<br>
 Post sur le fil d'actualité.
+<br>

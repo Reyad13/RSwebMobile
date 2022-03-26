@@ -7,10 +7,7 @@ import React, { useContext } from "react"
 import { UserContext } from "../../providers/UserProvider"
 import { useColorScheme } from "react-native-appearance"
 import { MyDarkTheme, MyDefaultTheme } from "../../themes"
-import * as ImagePicker from 'expo-image-picker';
-
-
-
+import * as ImagePicker from 'expo-image-picker'
 
 const Profile = ({ navigation }: any) => {
 
@@ -22,23 +19,22 @@ const Profile = ({ navigation }: any) => {
     const pickImage = async () => {
         // No permissions request is necessary for launching the image library
         let result = await ImagePicker.launchImageLibraryAsync({
-          mediaTypes: ImagePicker.MediaTypeOptions.All,
-          allowsEditing: true,
-          aspect: [4, 3],
-          quality: 1,
-        });
+            mediaTypes: ImagePicker.MediaTypeOptions.All,
+            allowsEditing: true,
+            aspect: [4, 3],
+            quality: 1,
+        })
     }
 
     const takePhoto = async () => {
         let pickerResult = await ImagePicker.launchCameraAsync({
-          allowsEditing: true,
-          aspect: [4, 3],
-        });
-    
-        _handleImagePicked(pickerResult);
-      };
+            allowsEditing: true,
+            aspect: [4, 3],
+        })
 
-      
+        _handleImagePicked(pickerResult)
+    }
+
     return (
         <View style={styles.container}>
             <View style={styles.body}>
@@ -54,7 +50,7 @@ const Profile = ({ navigation }: any) => {
                             source={{ uri: userInfo?.avatar !== "" ? userInfo?.avatar : "https://i.ibb.co/yp3WwP4/avatar.png" }}
                         />
                         <Text style={styles.btnChangepicture} onPress={pickImage} >+</Text>
-                        
+
                     </View>
                     <View style={styles.abonnementContainer}>
                         <Text style={styles.btnChangepicture} onPress={takePhoto} > Prendre photo</Text>
@@ -181,7 +177,7 @@ const styles = StyleSheet.create({
         color: "orange",
         fontSize: 32,
         fontWeight: "bold",
-        
+
     },
     buttonAvatar: {
         padding: 10,

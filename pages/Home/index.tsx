@@ -9,7 +9,9 @@ import { color } from "react-native-elements/dist/helpers"
 type PostType = {
     id: string | null,
     caption: string,
-    image: string | null
+    image: string | null,
+    profile_picture: string | null,
+    user: string | null,
 }
 interface PostProps {
     post: PostType
@@ -33,6 +35,8 @@ const Home = ({ navigation }: any) => {
                                 id: doc.id,
                                 caption: doc.get("caption"),
                                 image: doc.get("image"),
+                                profile_picture: doc.get("profile_picture"),
+                                user: doc.get("user"),
                             }
                             datas.push(data)
                         }
@@ -82,8 +86,8 @@ const PostHeader = ({ post }: PostProps) => {
     return (
         <View style={styles.postHeader}>
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                <Image source={{ uri: userInfo?.avatar }} style={styles.story} />
-                <Text style={[{ color: colors.text, marginLeft: 5, fontWeight: '700' }]}>{userInfo?.username}</Text>
+                <Image source={{ uri: post?.profile_picture?.toString() }} style={styles.story} />
+                <Text style={[{ color: colors.text, marginLeft: 5, fontWeight: '700' }]}>{post?.user?.toString()}</Text>
             </View>
             <Text style={{ color: colors.text, fontWeight: '900', marginRight: 5 }}>...</Text>
         </View>

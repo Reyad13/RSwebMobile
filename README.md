@@ -38,3 +38,11 @@ Mode sombre :
 <img width="400" alt="moqups2" src="https://user-images.githubusercontent.com/58333856/154497090-fcb0545d-8787-4304-ac7f-87399583ec70.jpeg">
 </div>
 
+Fonctionnalités :
+
+Authentification fireBase ( FaceID Iphone)
+<br>
+Appareil photo - Changement de photo de profil
+<br>
+Post sur le fil d'actualité.
+<br>

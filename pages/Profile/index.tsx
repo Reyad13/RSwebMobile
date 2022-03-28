@@ -16,24 +16,6 @@ const Profile = ({ navigation }: any) => {
     const { userInfo } = useContext(UserContext)
     const scheme = useColorScheme()
 
-    const pickImage = async () => {
-        // No permissions request is necessary for launching the image library
-        let result = await ImagePicker.launchImageLibraryAsync({
-            mediaTypes: ImagePicker.MediaTypeOptions.All,
-            allowsEditing: true,
-            aspect: [4, 3],
-            quality: 1,
-        })
-    }
-
-    const takePhoto = async () => {
-        let pickerResult = await ImagePicker.launchCameraAsync({
-            allowsEditing: true,
-            aspect: [4, 3],
-        })
-
-        _handleImagePicked(pickerResult)
-    }
 
     return (
         <View style={styles.container}>
@@ -49,11 +31,9 @@ const Profile = ({ navigation }: any) => {
                             rounded
                             source={{ uri: userInfo?.avatar !== "" ? userInfo?.avatar : "https://i.ibb.co/yp3WwP4/avatar.png" }}
                         />
-                        <Text style={styles.btnChangepicture} onPress={pickImage} >+</Text>
 
                     </View>
                     <View style={styles.abonnementContainer}>
-                        <Text style={styles.btnChangepicture} onPress={takePhoto} > Prendre photo</Text>
                         <Text style={[styles.number, { color: colors.text }]}>{userInfo?.nbAbonnements}</Text>
                         <Text style={[styles.title, { color: colors.text }]}>Abonnements</Text>
                     </View>

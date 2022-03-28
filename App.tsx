@@ -4,7 +4,7 @@ import { Connection, Start, Message, Profile, Registration, Search, Home, New } 
 import { AppearanceProvider, useColorScheme } from "react-native-appearance"
 import { initializeApp } from "firebase/app"
 import useFirebaseLogin from './hooks/useFirebaseLogin'
-import { useContext, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { firebaseConfig } from './config/firebase'
 import { LogoTitle, NavigationTitle } from './components'
 import { Icon } from "react-native-elements"

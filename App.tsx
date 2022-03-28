@@ -77,7 +77,6 @@ export default function App() {
                   headerStyle: { backgroundColor: scheme === "dark" ? MyDarkTheme.colors.background : MyDefaultTheme.colors.background, borderBottomWidth: 1 }, headerTitle: "Nouvelle publication", tabBarActiveTintColor: setActiveBottomNavigationColor(), tabBarLabel: hideBottomTabBarLabel, tabBarIcon: ({ color }) => (<Icon name="md-add-circle-outline" color={color} size={25} type='ionicon' />)
                 }} />
                 <Tab.Screen name="Search" component={Search} options={{ tabBarActiveTintColor: setActiveBottomNavigationColor(), tabBarLabel: hideBottomTabBarLabel, tabBarIcon: ({ color }) => (<Icon name="search1" color={color} size={25} type='antdesign' />) }} />
-                <Tab.Screen name="Message" component={Message} options={{ tabBarActiveTintColor: setActiveBottomNavigationColor(), tabBarLabel: hideBottomTabBarLabel, tabBarIcon: ({ color }) => (<Icon name="message1" color={color} size={25} type='antdesign' />) }} />
               </Tab.Navigator>
               :
               <Stack.Navigator>

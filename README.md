@@ -44,6 +44,25 @@ Compte test avec photo de profil :
 email : test@gmail.com
 mdp : 12345azert
 
+Utilisation de l'app avec Expo :
+
+Télécharger expo go sur son smartphone 
+
+https://apps.apple.com/fr/app/expo-go/id982107779
+
+https://play.google.com/store/apps/details?id=host.exp.exponent&hl=fr&gl=US
+
+1- npm install
+
+2- expo start
+
+3- Aller sur le localhost
+
+<img width="790" alt="Capture d’écran 2022-03-28 à 02 34 40" src="https://user-images.githubusercontent.com/58333856/160308322-81737b3f-47d7-4d71-865a-34671c71f461.png">
+
+-4 Mettre la connexion en mode "tunnel" et scanner le QRCODE
+
+<img width="790" alt="Capture d’écran 2022-03-28 à 02 34 40" src="https://user-images.githubusercontent.com/58333856/160308322-81737b3f-47d7-4d71-865a-34671c71f461.png">
 
 
 Fonctionnalités à tester:
@@ -59,5 +78,4 @@ Recherche des utilisateurs par pseudo (Nous aurons souhaité ajouter la possibil
 La modification du profil et de l'image (utilisation de cloudinary, hébergeur de photo, nous aurons aimé dans le futur la possibilité de se prendre en photo) se fait pour le moment sur firebase
 <br>
 <img width="1434" alt="Capture d’écran 2022-03-28 à 02 11 54" src="https://user-images.githubusercontent.com/58333856/160307393-fac82ecb-c012-4c2b-a300-1905f6639b7b.png">
-
 

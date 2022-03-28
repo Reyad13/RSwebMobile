@@ -4,6 +4,8 @@ import { StyleSheet, Text, View, TextInput, TouchableOpacity, KeyboardAvoidingVi
 import { useTheme } from "@react-navigation/native"
 import { DismissKeyboard } from "../../helpers/utils"
 import useFirebaseLogin from "../../hooks/useFirebaseLogin"
+import { useFonts, Pacifico_400Regular } from '@expo-google-fonts/pacifico'
+import AppLoading from "expo-app-loading"
 
 const Registration = ({ navigation }: any) => {
 
@@ -13,53 +15,61 @@ const Registration = ({ navigation }: any) => {
     const [password, setPassword] = useState<string>("")
     const { colors } = useTheme()
     const { registerUser } = useFirebaseLogin()
+    let [fontsLoaded] = useFonts({
+        Pacifico_400Regular,
+    })
 
-    return (
-        <DismissKeyboard>
-            <KeyboardAvoidingView style={styles.container} behavior="padding">
-                <View style={styles.container}>
-                    <View style={styles.body}>
-                        <View style={styles.inputContainer}>
-                            <Text style={[styles.brand, { color: colors.text }]}>Moure</Text>
-                            <TextInput
-                                style={[styles.input, { borderColor: colors.border, backgroundColor: colors.card, color: colors.text }]}
-                                onChangeText={setFirstName}
-                                value={firstName}
-                                placeholder="Prénom"
-                            />
-                            <TextInput
-                                style={[styles.input, { borderColor: colors.border, backgroundColor: colors.card, color: colors.text }]}
-                                onChangeText={setLastName}
-                                value={lastName}
-                                placeholder="Nom de famille"
-                            />
-                            <TextInput
-                                style={[styles.input, { borderColor: colors.border, backgroundColor: colors.card, color: colors.text }]}
-                                onChangeText={setEmail}
-                                value={email}
-                                placeholder="Adresse email"
-                                autoCapitalize="none"
-                            />
-                            <TextInput
-                                style={[styles.input, { borderColor: colors.border, backgroundColor: colors.card, color: colors.text }]}
-                                onChangeText={setPassword}
-                                value={password}
-                                placeholder="Mot de passe"
-                                secureTextEntry={true}
-                            />
-                            <TouchableOpacity
-                                style={styles.buttonConnection}
-                                onPress={() => registerUser(firstName, lastName, email, password)}
-                            >
-                                <Text style={styles.btnText}>S'inscrire</Text>
-                            </TouchableOpacity>
+    if (!fontsLoaded) {
+        return <AppLoading />
+    }
+    else {
+        return (
+            <DismissKeyboard>
+                <KeyboardAvoidingView style={styles.container} behavior="padding">
+                    <View style={styles.container}>
+                        <View style={styles.body}>
+                            <View style={styles.inputContainer}>
+                                <Text style={[styles.brand, { color: colors.text }]}>Moure</Text>
+                                <TextInput
+                                    style={[styles.input, { borderColor: colors.border, backgroundColor: colors.card, color: colors.text }]}
+                                    onChangeText={setFirstName}
+                                    value={firstName}
+                                    placeholder="Prénom"
+                                />
+                                <TextInput
+                                    style={[styles.input, { borderColor: colors.border, backgroundColor: colors.card, color: colors.text }]}
+                                    onChangeText={setLastName}
+                                    value={lastName}
+                                    placeholder="Nom de famille"
+                                />
+                                <TextInput
+                                    style={[styles.input, { borderColor: colors.border, backgroundColor: colors.card, color: colors.text }]}
+                                    onChangeText={setEmail}
+                                    value={email}
+                                    placeholder="Adresse email"
+                                    autoCapitalize="none"
+                                />
+                                <TextInput
+                                    style={[styles.input, { borderColor: colors.border, backgroundColor: colors.card, color: colors.text }]}
+                                    onChangeText={setPassword}
+                                    value={password}
+                                    placeholder="Mot de passe"
+                                    secureTextEntry={true}
+                                />
+                                <TouchableOpacity
+                                    style={styles.buttonConnection}
+                                    onPress={() => registerUser(firstName, lastName, email, password)}
+                                >
+                                    <Text style={styles.btnText}>S'inscrire</Text>
+                                </TouchableOpacity>
+                            </View>
                         </View>
+                        <StatusBar style={"auto"} />
                     </View>
-                    <StatusBar style={"auto"} />
-                </View>
-            </KeyboardAvoidingView>
-        </DismissKeyboard>
-    )
+                </KeyboardAvoidingView>
+            </DismissKeyboard>
+        )
+    }
 }
 
 const styles = StyleSheet.create({

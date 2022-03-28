@@ -8,7 +8,7 @@ import { useContext, useEffect, useState } from 'react'
 import { firebaseConfig } from './config/firebase'
 import { LogoTitle, NavigationTitle } from './components'
 import { Icon } from "react-native-elements"
-import { Image, StyleSheet, TouchableOpacity } from 'react-native'
+import { Image, StyleSheet, Text, TouchableOpacity } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { MyDarkTheme, MyDefaultTheme } from './themes'
 import { UserProvider } from './providers'
@@ -73,7 +73,9 @@ export default function App() {
                 }}
               >
                 <Tab.Screen name="Accueil" component={Accueil} options={{ headerShown: false, tabBarActiveTintColor: setActiveBottomNavigationColor(), tabBarLabel: hideBottomTabBarLabel, tabBarIcon: ({ color }) => (<Icon name="home" color={color} size={25} type='antdesign' />) }} />
-                <Tab.Screen name="New" component={New} options={{ tabBarActiveTintColor: setActiveBottomNavigationColor(), tabBarLabel: hideBottomTabBarLabel, tabBarIcon: ({ color }) => (<Icon name="md-add-circle-outline" color={color} size={25} type='ionicon' />) }} />
+                <Tab.Screen name="New" component={New} options={{
+                  headerStyle: { backgroundColor: scheme === "dark" ? MyDarkTheme.colors.background : MyDefaultTheme.colors.background, borderBottomWidth: 1 }, headerTitle: "Nouvelle publication", tabBarActiveTintColor: setActiveBottomNavigationColor(), tabBarLabel: hideBottomTabBarLabel, tabBarIcon: ({ color }) => (<Icon name="md-add-circle-outline" color={color} size={25} type='ionicon' />)
+                }} />
                 <Tab.Screen name="Search" component={Search} options={{ tabBarActiveTintColor: setActiveBottomNavigationColor(), tabBarLabel: hideBottomTabBarLabel, tabBarIcon: ({ color }) => (<Icon name="search1" color={color} size={25} type='antdesign' />) }} />
                 <Tab.Screen name="Message" component={Message} options={{ tabBarActiveTintColor: setActiveBottomNavigationColor(), tabBarLabel: hideBottomTabBarLabel, tabBarIcon: ({ color }) => (<Icon name="message1" color={color} size={25} type='antdesign' />) }} />
               </Tab.Navigator>
@@ -96,5 +98,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     paddingVertical: 10,
     marginRight: -20,
+  },
+  buttonShare: {
+    marginRight: 12,
   }
 })

@@ -1,13 +1,23 @@
 import { useTheme } from "@react-navigation/native"
 import { StyleSheet, Text } from "react-native"
+import { useFonts, Pacifico_400Regular } from '@expo-google-fonts/pacifico'
+import AppLoading from "expo-app-loading"
 
 const LogoTitle = () => {
 
     const { colors } = useTheme()
+    let [fontsLoaded] = useFonts({
+        Pacifico_400Regular,
+    })
 
-    return (
-        <Text style={[styles.brand, { color: colors.text }]}>Moure</Text>
-    )
+    if (!fontsLoaded) {
+        return <AppLoading />
+    }
+    else {
+        return (
+            <Text style={[styles.brand, { color: colors.text }]}>Moure</Text>
+        )
+    }
 }
 
 

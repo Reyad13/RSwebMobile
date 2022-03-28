@@ -4,7 +4,6 @@ import { useIsFocused, useTheme } from "@react-navigation/native"
 import { useContext, useEffect, useState } from "react"
 import { UserContext } from "../../providers/UserProvider"
 import { getFirestore, collectionGroup, collection, getDocs } from "firebase/firestore"
-import { color } from "react-native-elements/dist/helpers"
 
 type PostType = {
     id: string | null,
@@ -65,11 +64,11 @@ const Home = ({ navigation }: any) => {
 
 const Post = ({ post }: PostProps) => {
     return (
-        <>
+        <View style={styles.postView}>
             <PostHeader post={post} />
             <PostImage post={post} />
             <PostFooter post={post} />
-        </>
+        </View>
     )
 }
 
@@ -152,6 +151,9 @@ const styles = StyleSheet.create({
         margin: 5,
         alignItems: 'center',
     },
+    postView: {
+        marginBottom: 20,
+    },
     story: {
         width: 35,
         height: 35,
@@ -159,12 +161,6 @@ const styles = StyleSheet.create({
         marginLeft: 6,
         borderWidth: 1.6,
         borderColor: '#ff8501'
-    },
-    brand: {
-        fontSize: 35,
-        fontWeight: "bold",
-        fontFamily: 'Pacifico_400Regular',
-        marginBottom: 10,
     },
     btnText: {
         fontSize: 14,

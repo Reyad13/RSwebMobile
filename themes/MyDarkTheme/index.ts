@@ -4,8 +4,8 @@ const MyDarkTheme = {
     ...DarkTheme,
     colors: {
         primary: '#43e9ff',
-        background: '#0c131f',
-        card: '#242b35',
+        background: '#121212',
+        card: '#1d1d1d',
         text: '#ffffff',
         border: '#14171d',
         notification: 'string'

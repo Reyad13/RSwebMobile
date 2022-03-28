@@ -62,7 +62,8 @@ https://play.google.com/store/apps/details?id=host.exp.exponent&hl=fr&gl=US
 
 -4 Mettre la connexion en mode "tunnel" et scanner le QRCODE
 
-<img width="790" alt="Capture d’écran 2022-03-28 à 02 34 40" src="https://user-images.githubusercontent.com/58333856/160308322-81737b3f-47d7-4d71-865a-34671c71f461.png">
+<img width="1433" alt="Capture d’écran 2022-03-28 à 02 35 59" src="https://user-images.githubusercontent.com/58333856/160308548-4bafe471-5680-49c5-8b39-655a7ad84cf6.png">
+
 
 
 Fonctionnalités à tester:

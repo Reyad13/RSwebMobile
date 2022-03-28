@@ -38,11 +38,26 @@ Mode sombre :
 <img width="400" alt="moqups2" src="https://user-images.githubusercontent.com/58333856/154497090-fcb0545d-8787-4304-ac7f-87399583ec70.jpeg">
 </div>
 
-Fonctionnalités :
 
-Authentification fireBase ( FaceID Iphone)
+Compte test avec photo de profil :
+
+email : test@gmail.com
+mdp : 12345azert
+
+
+
+Fonctionnalités à tester:
+
+Inscription + Authentification fireBase
 <br>
-Appareil photo - Changement de photo de profil
+Publication de post (text + image de galerie) + Affichage des posts
 <br>
-Post sur le fil d'actualité.
+Recherche des utilisateurs par pseudo (Nous aurons souhaité ajouter la possibilité de recherche par localisation)
 <br>
+
+
+La modification du profil et de l'image (utilisation de cloudinary, hébergeur de photo, nous aurons aimé dans le futur la possibilité de se prendre en photo) se fait pour le moment sur firebase
+<br>
+<img width="1434" alt="Capture d’écran 2022-03-28 à 02 11 54" src="https://user-images.githubusercontent.com/58333856/160307393-fac82ecb-c012-4c2b-a300-1905f6639b7b.png">
+
+

@@ -52,12 +52,10 @@ const New = ({ navigation }: any) => {
         if (image !== null && caption !== "") {
             const auth = getAuth()
             let currentUser = auth.currentUser
-            console.log(caption)
-            console.log(currentUser)
+
             if (currentUser) {
                 let docRef = collection(db, "users", currentUser?.uid, "posts")
-                console.log(caption)
-                console.log(image)
+
                 const data = new FormData()
                 data.append('file', "data:image/jpeg;base64," + image)
                 data.append('upload_preset', 'webmobilepreset')
@@ -70,7 +68,7 @@ const New = ({ navigation }: any) => {
                     .then(response => response.json())
                     .then(data => {
                         if (data.secure_url) {
-                            console.log(data.url)
+
                             addDoc(docRef, {
                                 caption: caption,
                                 created_at: serverTimestamp(),
